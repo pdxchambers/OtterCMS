@@ -1,0 +1,22 @@
+{
+  "name": "ottercms",
+  "version": "1.0.0",
+  "description": "A simple CMS implemented in NodeJS and Next.js/React.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec node --env-file .env index.js"
+  },
+  "author": "Julien Chambers",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "graphql-http": "^1.22.4",
+    "graphql-playground-middleware-express": "^1.7.23",
+    "mongoose": "^8.10.0",
+    "nodemon": "^3.1.9",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7"
+  }
+}
