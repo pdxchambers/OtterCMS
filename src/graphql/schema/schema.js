@@ -1,14 +1,22 @@
 import { buildSchema } from "graphql";
 
 const schema = buildSchema(`
+    scalar Date
+
+    enum Role {
+        ADMIN
+        USER
+    }
+
     type User {
         id: ID
         username: String
         firstName: String
-        LastName: String
+        lastName: String
         password: String
         email: String
-        role: String
+        createDate: Date
+        role: Role
     }
     
     type Post {
@@ -16,7 +24,7 @@ const schema = buildSchema(`
         title: String
         content: String
         author: User
-        createDate: String
+        createDate: Date
         isPage: Boolean
     }
 
@@ -25,6 +33,35 @@ const schema = buildSchema(`
         getUser(id: ID!): User
         getAllUsers: [User]
         getAllPosts: [Post]
+    }
+
+    input UserInput {
+        id: ID
+        username: String
+        firstName: String
+        lastName: String
+        password: String
+        email: String
+        createDate: Date
+        role: Role
+    }
+
+    input PostInput {
+        id: ID
+        title: String
+        content: String
+        author: UserInput
+        createDate: Date
+        isPage: Boolean
+    }
+
+    type Mutation {
+        createUser(input: UserInput): User
+        updateUser(id: ID!, input: UserInput): User
+        deleteUser(id: ID!): User
+        createPost(input: PostInput): Post
+        updatePost(id: ID!, input: PostInput): Post
+        deletePost(id: ID!): Post
     }
 `)
 

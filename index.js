@@ -2,7 +2,7 @@ import express from "express";
 import { createHandler } from "graphql-http/lib/use/express";
 import expressPlayground from "graphql-playground-middleware-express";
 import { schema } from "./src/graphql/schema/schema.js";
-import { resolvers } from "./src/graphql/resolvers/resolvers.js";
+import resolvers from "./src/graphql/resolvers/resolvers.js";
 
 const app = express();
 const graphqlPlayground = expressPlayground.default;
